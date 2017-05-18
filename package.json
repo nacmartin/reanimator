@@ -7,7 +7,7 @@
     "build": "webpack",
     "lint": "eslint src",
     "start": "webpack-dev-server",
-    "test": "mocha --compilers js:babel-register --recursive 'src/**/__tests__/*' --require babel-polyfill",
+    "test": "mocha --compilers js:babel-register --recursive 'src/__tests__/*' --require babel-polyfill",
     "webpack-prod": "export NODE_ENV=production; webpack -p"
   },
   "author": "Nacho Martin (nacho@limenius.com)",

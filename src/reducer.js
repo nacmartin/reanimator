@@ -5,6 +5,6 @@ export default function reducer(state = initialState, action = {}) {
         case 'REANIMATOR/ANIMATE':
             return {...state, [action.property]: action.value}
         default:
-                return state
+            return state
     }
 }
