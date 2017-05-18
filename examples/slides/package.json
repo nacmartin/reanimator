@@ -1,0 +1,42 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "webpack",
+        "lint": "eslint src",
+        "start": "webpack-dev-server",
+        "webpack-prod": "export NODE_ENV=production; webpack -p"
+    },
+    "dependencies": {
+        "react": "^15.5.4",
+        "react-dom": "^15.5.4",
+        "react-redux": "^5.0.4",
+        "redux": "^3.6.0",
+        "redux-saga": "^0.15.3"
+    },
+    "devDependencies": {
+        "@ljharb/eslint-config": "^11.0.0",
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-eslint": "7.1.1",
+        "babel-loader": "^7.0.0",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-preset-es2015-no-commonjs": "^0.0.2",
+        "babel-preset-react": "^6.24.1",
+        "babel-preset-stage-2": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "css-loader": "^0.28.0",
+        "eslint": "3.16.1",
+        "eslint-config-react-app": "^0.6.2",
+        "eslint-plugin-flowtype": "2.21.0",
+        "eslint-plugin-import": "2.0.1",
+        "eslint-plugin-jsx-a11y": "4.0.0",
+        "eslint-plugin-react": "6.4.1",
+        "node-sass": "^4.5.2",
+        "react-hot-loader": "next",
+        "rimraf": "^2.6.1",
+        "sass-loader": "^6.0.3",
+        "style-loader": "^0.16.1",
+        "webpack": "^2.4.1",
+        "webpack-dev-server": "^2.4.5"
+    }
+}
