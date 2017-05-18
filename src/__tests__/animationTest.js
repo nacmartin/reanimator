@@ -8,7 +8,14 @@ let expect = chai.expect;
 describe('Animation', function() {
     it('buildAnimation returns a generator', function() {
         const animation = buildAnimation({
+        })
+        expect(animation.next).to.be.a('function')
+        expect(animation.throw).to.be.a('function')
+    })
+    it('animation returns a state update', function() {
+        const animation = buildAnimation({
             streams: [ 'TIME' ],
+            outputs: [ 'x' ],
             systems: [
                 {
                     input: 'TIME',
@@ -19,8 +26,8 @@ describe('Animation', function() {
                 },
             ]
         })
-        expect(typeof animation.next).to.equal('function')
-        expect(typeof animation.throw).to.equal('function')
+        let val = animation.next()
+        expect(val.value).to.be.a('object')
     })
 
 })
