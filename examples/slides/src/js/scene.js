@@ -16,5 +16,5 @@ class Scene extends React.Component {
 }
 
 export default connect((state) => ({
-    left: state.x
+    x: state.x
 }))(Scene)

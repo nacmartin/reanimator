@@ -17,13 +17,15 @@ function sagator(reanimator) {
 
 export default function* rootSaga(reanimator) {
     yield take(Constants.START_ANIMATION)
+
     reanimator.setState({
         streams: [ 'TIME' ],
+        outputs: [ 'x' ],
         systems: [
             {
                 input: 'TIME',
                 output: 'x',
-                domain: [Date.now(), Date.now() + 4000],
+                domain: [Date.now(), Date.now() + 1000],
                 range: [100, 200],
                 easing: 'linear',
             },
@@ -31,6 +33,7 @@ export default function* rootSaga(reanimator) {
     })
     const chan = yield call(sagator, reanimator)
     while (true) {
+
         let action = yield take(chan)
         yield put(action)
     }

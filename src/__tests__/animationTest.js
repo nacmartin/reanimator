@@ -29,5 +29,4 @@ describe('Animation', function() {
         let val = animation.next()
         expect(val.value).to.be.a('object')
     })
-
 })
