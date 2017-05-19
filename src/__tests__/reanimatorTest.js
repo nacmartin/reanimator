@@ -31,4 +31,30 @@ describe('Reanimator', function() {
         expect(cb.callCount).to.equal(10)
 
     })
+    it('can cancel an animation', function() {
+        let mockRaf = createMockRaf()
+        let reanimator = new Reanimator({raf: mockRaf.raf})
+        let cb = sinon.spy()
+        reanimator.setDispatcher(cb)
+
+        reanimator.setState({
+            streams: [ 'TIME' ],
+            outputs: [ 'x' ],
+            systems: [
+                {
+                    input: 'TIME',
+                    output: 'x',
+                    domain: [Date.now(), Date.now() + 4000],
+                    range: [100, 200],
+                    easing: 'easeLinear',
+                },
+            ]
+        })
+
+        mockRaf.step({ count: 10 })
+        reanimator.cancel()
+        mockRaf.step({ count: 10 })
+        expect(cb.callCount).to.equal(10)
+
+    })
 })

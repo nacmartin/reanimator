@@ -10,6 +10,7 @@ export default class Reanimator {
         this.setState = this.setState.bind(this)
         //this.setDispatcher = this.setDispatcher.bind(this)
         this.raf = options.raf || defaultRaf
+        this.cancelled = false
 
         this.raf(this.runAnimation)
     }
@@ -23,9 +24,14 @@ export default class Reanimator {
         this.animation = buildAnimation(state)
     }
 
+    cancel() {
+        this.cancelled = true
+    }
+
     runAnimation() {
-        this.dispatcher && this.animation && this.dispatcher({type: 'REANIMATOR/ANIMATE', properties: {...this.animation.next().value}})
-        //this.dispatcher && this.dispatcher({type: 'REANIMATOR/REANIMATE', x: 1000})
-        this.raf(this.runAnimation)
+        if (!this.cancelled) {
+            this.dispatcher && this.animation && this.dispatcher({type: 'REANIMATOR/ANIMATE', properties: {...this.animation.next().value}})
+            this.raf(this.runAnimation)
+        }
     }
 }
