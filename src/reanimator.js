@@ -2,15 +2,16 @@ import defaultRaf from 'raf'
 import buildAnimation from './animation'
 
 export default class Reanimator {
-    constructor() {
+    constructor(options) {
         this.dispatcher = null
         this.state = {}
         this.animation = null
         this.runAnimation = this.runAnimation.bind(this)
         this.setState = this.setState.bind(this)
         //this.setDispatcher = this.setDispatcher.bind(this)
+        this.raf = options.raf || defaultRaf
 
-        defaultRaf(this.runAnimation)
+        this.raf(this.runAnimation)
     }
 
     setDispatcher(dispatcher) {
@@ -25,6 +26,6 @@ export default class Reanimator {
     runAnimation() {
         this.dispatcher && this.animation && this.dispatcher({type: 'REANIMATOR/ANIMATE', properties: {...this.animation.next().value}})
         //this.dispatcher && this.dispatcher({type: 'REANIMATOR/REANIMATE', x: 1000})
-        defaultRaf(this.runAnimation)
+        this.raf(this.runAnimation)
     }
 }

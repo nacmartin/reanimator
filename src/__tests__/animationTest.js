@@ -22,7 +22,7 @@ describe('Animation', function() {
                     output: 'x',
                     domain: [Date.now(), Date.now() + 4000],
                     range: [100, 200],
-                    easing: 'linear',
+                    easing: 'easeLinear',
                 },
             ]
         })

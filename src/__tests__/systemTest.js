@@ -12,7 +12,7 @@ describe('System', function() {
             output: 'some_other',
             domain: [-1000, 1000],
             range: [100, 200],
-            easing: 'linear',
+            easing: 'easeLinear',
         }
         const system = buildSystem(systemSpec)
         expect(system.compute(0)).to.equal(150)
@@ -23,7 +23,7 @@ describe('System', function() {
             output: 'some_other',
             domain: [-1000, 1000],
             range: [100, 200],
-            easing: 'linear',
+            easing: 'easeLinear',
         }
         const system = buildSystem(systemSpec)
         expect(system.compute(-2000)).to.equal(100)
@@ -35,7 +35,7 @@ describe('System', function() {
             output: 'some_other',
             domain: [-1000, 1000],
             range: [100, 200],
-            easing: 'linear',
+            easing: 'easeLinear',
         }
         const system = buildSystem(systemSpec)
         expect(system.input).to.equal('some')

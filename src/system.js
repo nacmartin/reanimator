@@ -14,10 +14,6 @@ export default function buildSystem(systemSpec) {
         if (input > domain[1]) {
             return range[1]
         }
-        //console.log('hola')
-        //console.log((input - systemSpec.domain[0]) / domainSpan)
-        //console.log('adios')
-        //console.log(easingFn((input - systemSpec.domain[0]) / domainSpan))
         return easingFn(((input - systemSpec.domain[0]) / domainSpan)) * rangeSpan + systemSpec.range[0]
     }
     return { compute, input : systemSpec.input }
